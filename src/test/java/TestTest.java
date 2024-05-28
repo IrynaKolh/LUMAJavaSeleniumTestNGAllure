@@ -1,8 +1,8 @@
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 public class TestTest {
-    @Test
-    public void test() {
-        System.out.println("Hello world!");
-    }
+  @Test
+  public void test() {
+    System.out.println("Hello world!");
+  }
 }
