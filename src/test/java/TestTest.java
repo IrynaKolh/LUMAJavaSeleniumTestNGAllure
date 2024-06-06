@@ -1,5 +1,3 @@
-package com;
-
 import org.testng.*;
 import org.testng.annotations.Test;
 
