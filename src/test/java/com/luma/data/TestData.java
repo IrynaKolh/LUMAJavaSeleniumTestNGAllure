@@ -28,7 +28,7 @@ public class TestData {
   public static final String SALE_URL = BASE_URL + "/sale.html";
   public static final By SALE_MENU = By.xpath("//nav//span[text()='Sale']");
 
-  @DataProvider(name="naviigationData")
+  @DataProvider(name="navigationData")
   public static Object[][] getNavMenuData() {
     return new Object [][] {
       {BASE_URL, WHATS_NEW_MENU, WHATS_NEW_URL, WHATS_NEW_TITLE},
