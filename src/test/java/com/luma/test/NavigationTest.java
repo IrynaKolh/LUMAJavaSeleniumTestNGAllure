@@ -1,10 +1,10 @@
 package com.luma.test;
 
 import com.luma.base.BaseTest;
-import com.luma.data.*;
+import com.luma.data.TestData;
 import io.qameta.allure.*;
-import org.openqa.selenium.*;
-import org.testng.*;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class NavigationTest extends BaseTest {
@@ -34,9 +34,7 @@ public class NavigationTest extends BaseTest {
   @Test(description = "TC-02 Top Menu Navigation", dataProvider = "navigationData", dataProviderClass = TestData.class)
   @Story("Navigation Menu")
   @Severity(SeverityLevel.CRITICAL)
-  @Description("To verify that the top menu navigation on the website functions correctly " +
-    "by ensuring that clicking on menu items directs the user to the expected URL " +
-    "with the expected title.")
+  @Description("To verify that the top menu navigation on the website functions correctly by ensuring that clicking on menu items directs the user to the expected URL with the expected title.")
   @Link(TestData.BASE_URL)
   public void testNavigationMenu(String baseUrl, By locator, String expectedUrl, String expectedTitle) {
 

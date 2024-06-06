@@ -1,13 +1,13 @@
 package com.luma.data;
 
-import org.openqa.selenium.*;
-import org.testng.annotations.*;
+import org.openqa.selenium.By;
+import org.testng.annotations.DataProvider;
 
 public class TestData {
   public static  final String BASE_URL = "https://magento.softwaretestingboard.com";
   public static  final String TITLE = "Home Page";
 
-//  NavBar Menu
+  //  NavBar Menu
   public static final String WHATS_NEW_TITLE = "What's New";
   public static final String WHATS_NEW_URL = BASE_URL + "/what-is-new.html";
   public static final By WHATS_NEW_MENU = By.xpath("//nav//span[text()=\"What's New\"]");
@@ -28,7 +28,7 @@ public class TestData {
   public static final String SALE_URL = BASE_URL + "/sale.html";
   public static final By SALE_MENU = By.xpath("//nav//span[text()='Sale']");
 
-  @DataProvider(name="navigationData")
+  @DataProvider(name = "navigationData")
   public static Object[][] getNavMenuData() {
     return new Object [][] {
       {BASE_URL, WHATS_NEW_MENU, WHATS_NEW_URL, WHATS_NEW_TITLE},

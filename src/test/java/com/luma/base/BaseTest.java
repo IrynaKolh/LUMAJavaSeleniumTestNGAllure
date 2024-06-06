@@ -1,8 +1,8 @@
 package com.luma.base;
 
-import com.luma.utils.*;
-import io.github.bonigarcia.wdm.*;
-import org.openqa.selenium.*;
+import com.luma.utils.DriverUtils;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 public abstract class BaseTest {
@@ -28,11 +28,7 @@ public abstract class BaseTest {
     }
   }
 
-
-
   public WebDriver getDriver() {
     return this.driver;
   }
-
-
 }
