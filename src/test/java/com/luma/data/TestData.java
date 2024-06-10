@@ -8,7 +8,6 @@ public class TestData {
   public static  final String TITLE = "Home Page";
 
   public static class NavMenuData {
-    //  NavBar Menu
     public static final String WHATS_NEW_TITLE = "What's New";
     public static final String WHATS_NEW_URL = BASE_URL + "/what-is-new.html";
     public static final By WHATS_NEW_MENU = By.xpath("//nav//span[text()=\"What's New\"]");
