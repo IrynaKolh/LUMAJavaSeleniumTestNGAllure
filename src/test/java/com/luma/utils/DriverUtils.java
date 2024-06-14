@@ -52,17 +52,19 @@ public class DriverUtils {
     return chromeDriver;
   }
 
-//  private static WebDriver createChromiumDriver(WebDriver driver) {
-//    if (driver != null) {
-//      driver.quit();
-//    }
-//
-//    ChromiumDriver chromiumDriver = new ChromiumDriver(chromiumOptions);
-//    chromiumDriver.executeCdpCommand("Network.enable", Map.of());
-//    chromiumDriver.executeCdpCommand("Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9")));
-//
-//    return chromiumDriver;
-//  }
+  private static WebDriver createChromiumDriver(WebDriver driver) {
+    if (driver != null) {
+      driver.quit();
+    }
+
+    ChromeDriver chromeDriver = new ChromeDriver((ChromeOptions) chromiumOptions);
+    chromeDriver.executeCdpCommand("Network.enable", Map.of());
+    chromeDriver.executeCdpCommand(
+      "Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9"))
+    );
+
+    return chromeDriver ;
+  }
 
   private static WebDriver createFirefoxDriver(WebDriver driver) {
     if (driver != null) {
@@ -83,6 +85,9 @@ public class DriverUtils {
       }
       case "firefox" -> {
         return createFirefoxDriver(driver);
+      }
+      case "chromium" -> {
+        return createChromiumDriver(driver);
       }
       default -> {
         return null;

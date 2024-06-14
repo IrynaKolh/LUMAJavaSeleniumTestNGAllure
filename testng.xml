@@ -9,11 +9,18 @@
         </classes>
     </test>
 
-    <test verbose="2" preserve-order="true" name="FirefoxTest">
-        <parameter name="browser" value="firefox" />
+<!--    <test verbose="2" preserve-order="true" name="FirefoxTest">-->
+<!--        <parameter name="browser" value="firefox" />-->
+<!--        <classes>-->
+<!--            <class name="com.luma.test.NavigationTest"/>-->
+<!--            <class name="FrameworkTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name = "ChromiumTest" verbose="10">
+        <parameter name="browser" value="chromium"/>
         <classes>
             <class name="com.luma.test.NavigationTest"/>
-            <class name="FrameworkTest"/>
         </classes>
     </test>
 </suite>
