@@ -1,9 +1,11 @@
 package com.luma.base;
 
-import com.luma.utils.*;
+import com.luma.utils.DriverUtils;
+import com.luma.utils.ReportUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.testng.*;
+import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 
 public abstract class BaseTest {
@@ -28,6 +30,7 @@ public abstract class BaseTest {
   protected void setupDriver(@Optional("chrome") String browser, ITestResult result) {
     Reporter.log("___________________________________________________________________________", true);
     Reporter.log("RUN " + result.getMethod().getMethodName(), true);
+
     this.driver = DriverUtils.createDriver(browser, this.driver);
     if (getDriver() == null) {
       Reporter.log("ERROR: Unknown parameter 'browser' - '" + browser + "'.", true);
