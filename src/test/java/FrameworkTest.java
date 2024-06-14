@@ -1,7 +1,7 @@
 import org.testng.*;
 import org.testng.annotations.Test;
 
-public class TestTest {
+public class FrameworkTest {
   @Test
   public void testPass() {
     System.out.println("Hello world!");

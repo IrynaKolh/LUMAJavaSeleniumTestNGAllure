@@ -9,7 +9,11 @@ import org.testng.annotations.*;
 
 public class NavigationTest extends BaseTest {
 
-  @Test(description = "TC-01 Open Base URL")
+  @Test(
+    description = "TC-01 Open Base URL",
+    groups = {"Smoke", "Regretion"},
+    testName ="NAVIGATION | Navigate to base URL"
+  )
   @Story("Navigation")
   @Severity(SeverityLevel.BLOCKER)
   @Description("TC-01 Open Base URL")
@@ -31,7 +35,13 @@ public class NavigationTest extends BaseTest {
     Assert.assertEquals(actualTitle, expectedTitle);
   }
 
-  @Test(description = "TC-02 Top Menu Navigation", dataProvider = "navigationData", dataProviderClass = TestData.class)
+  @Test(
+    description = "TC-02 Top Menu Navigation",
+    dataProvider = "navigationData",
+    dataProviderClass = TestData.class,
+    groups = {"Smoke", "Regretion"},
+    testName ="NAVIGATION | Navigate to top menus"
+  )
   @Story("Navigation Menu")
   @Severity(SeverityLevel.CRITICAL)
   @Description("To verify that the top menu navigation on the website functions correctly by ensuring that clicking on menu items directs the user to the expected URL with the expected title.")
