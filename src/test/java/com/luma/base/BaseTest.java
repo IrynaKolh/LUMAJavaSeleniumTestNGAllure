@@ -3,7 +3,7 @@ package com.luma.base;
 import com.luma.utils.DriverUtils;
 import com.luma.utils.ReportUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.*;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;

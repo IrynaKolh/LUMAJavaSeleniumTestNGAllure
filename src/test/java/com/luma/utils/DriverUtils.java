@@ -42,6 +42,7 @@ public class DriverUtils {
 
   private static WebDriver createChromeDriver(WebDriver driver) {
     if (driver != null) {
+
       driver.quit();
     }
 

@@ -1,6 +1,6 @@
 name: Build Java with Maven on CI
 
-on:
+on:  
   pull_request:
     branches: [ "main" ]
 
