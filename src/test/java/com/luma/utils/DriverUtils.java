@@ -1,13 +1,13 @@
 package com.luma.utils;
 
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chromium.ChromiumOptions;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.util.Map;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverUtils {
 
@@ -15,7 +15,7 @@ public class DriverUtils {
   private static final ChromiumOptions<ChromeOptions> chromiumOptions;
   private static final FirefoxOptions firefoxOptions;
 
-  static  {
+  static {
     chromeOptions = new ChromeOptions();
     chromeOptions.addArguments("--incognito");
     chromeOptions.addArguments("--headless");
@@ -63,7 +63,7 @@ public class DriverUtils {
       "Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9"))
     );
 
-    return chromeDriver ;
+    return chromeDriver;
   }
 
   private static WebDriver createFirefoxDriver(WebDriver driver) {
