@@ -22,8 +22,8 @@
 <!--        <parameter name="browser" value="chromium"/>-->
 <!--        <classes>-->
 <!--            <class name="com.luma.test.NavigationTest"/>-->
-<!--    <class name="com.luma.test.ProductPageTest"></class>-->
-<!--    <class name="FrameworkTest"/>-->
+<!---->
 <!--        </classes>-->
 <!--    </test>-->
-</suite>
+</suite>    <class name="com.luma.test.ProductPageTest"></class>-->
+        <!--    <class name="FrameworkTest"/>
