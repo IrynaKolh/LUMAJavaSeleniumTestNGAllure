@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-abstract public class BreadcrumbsMenu extends NavMenu  {
+public abstract class BreadcrumbsMenu extends NavMenu  {
 
   @FindBy(xpath = "//ul[@class='items']")
   private WebElement breadcrumbsMenu;
