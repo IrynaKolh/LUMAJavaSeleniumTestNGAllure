@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 
 public class TestData {
-  public static  final String BASE_URL = "https://magento.softwaretestingboard.com";
-  public static  final String TITLE = "Home Page";
+  public static final String BASE_URL = "https://magento.softwaretestingboard.com";
+  public static final String TITLE = "Home Page";
 
   public static class NavMenuData {
     public static final String WHATS_NEW_TITLE = "What's New";
@@ -31,12 +31,16 @@ public class TestData {
 
   @DataProvider(name = "navigationData")
   public static Object[][] getNavMenuData() {
-    return new Object [][] {
-      {BASE_URL, NavMenuData.WHATS_NEW_MENU, NavMenuData.WHATS_NEW_URL, NavMenuData.WHATS_NEW_TITLE},
-      {BASE_URL, NavMenuData.WOMEN_MENU, NavMenuData.WOMEN_URL, NavMenuData.WOMEN_TITLE},
-      {BASE_URL, NavMenuData.MEN_MENU, NavMenuData.MEN_URL, NavMenuData.MEN_TITLE},
-      {BASE_URL, NavMenuData.GEAR_MENU, NavMenuData.GEAR_URL, NavMenuData.GEAR_TITLE},
-      {BASE_URL, NavMenuData.SALE_MENU, NavMenuData.SALE_URL, NavMenuData.SALE_TITLE}
+    return new Object[][]{
+        {BASE_URL, NavMenuData.WHATS_NEW_MENU, NavMenuData.WHATS_NEW_URL, NavMenuData.WHATS_NEW_TITLE},
+        {BASE_URL, NavMenuData.WOMEN_MENU, NavMenuData.WOMEN_URL, NavMenuData.WOMEN_TITLE},
+        {BASE_URL, NavMenuData.MEN_MENU, NavMenuData.MEN_URL, NavMenuData.MEN_TITLE},
+        {BASE_URL, NavMenuData.GEAR_MENU, NavMenuData.GEAR_URL, NavMenuData.GEAR_TITLE},
+        {BASE_URL, NavMenuData.SALE_MENU, NavMenuData.SALE_URL, NavMenuData.SALE_TITLE}
     };
   }
+
+  //ProductPage
+  public static final String DRIVEN_BACKPACK_PRODUCT_NAME = "Driven Backpack";
+  public static final String DRIVEN_BACKPACK_PRODUCT_PAGE_BREADCRUMBS_MENU = "Home Gear Bags Driven Backpack";
 }
