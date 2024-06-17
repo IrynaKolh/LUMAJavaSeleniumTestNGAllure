@@ -7,15 +7,15 @@ import org.openqa.selenium.support.FindBy;
 
 public class ProductPage extends BreadcrumbsMenu {
 
-    @FindBy(xpath = "//h1")
-    private WebElement productName;
+  @FindBy(xpath = "//h1")
+  private WebElement productName;
 
-    protected ProductPage(WebDriver driver) {
-        super(driver);
-    }
+  protected ProductPage(WebDriver driver) {
+    super(driver);
+  }
 
-    @Step("Collect Actual Product Name Text.")
-    public String getProductName() {
-        return productName.getText();
-    }
+  @Step("Collect Actual Product Name Text.")
+  public String getProductName() {
+    return productName.getText();
+  }
 }

@@ -8,17 +8,17 @@ import org.openqa.selenium.support.FindBy;
 
 public class BagsPage extends SideMenu {
 
-    private final String productNameXpath = "//img[@alt='";
+  private final String productNameXpath = "//img[@alt='";
 
-    protected BagsPage(WebDriver driver) {
-        super(driver);
-    }
+  protected BagsPage(WebDriver driver) {
+    super(driver);
+  }
 
-    @Step("Click '{productName}' Img.")
-    public ProductPage clickProductImg(String productName) {
-        String imgXpath = productNameXpath + productName + "']";
-        getDriver().findElement(By.xpath(imgXpath)).click();
+  @Step("Click '{productName}' Img.")
+  public ProductPage clickProductImg(String productName) {
+    String imgXpath = productNameXpath + productName + "']";
+    getDriver().findElement(By.xpath(imgXpath)).click();
 
-        return new ProductPage(getDriver());
-    }
+    return new ProductPage(getDriver());
+  }
 }

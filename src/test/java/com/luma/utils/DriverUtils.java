@@ -61,7 +61,7 @@ public class DriverUtils {
     ChromeDriver chromeDriver = new ChromeDriver((ChromeOptions) chromiumOptions);
     chromeDriver.executeCdpCommand("Network.enable", Map.of());
     chromeDriver.executeCdpCommand(
-      "Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9"))
+        "Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9"))
     );
 
     return chromeDriver;

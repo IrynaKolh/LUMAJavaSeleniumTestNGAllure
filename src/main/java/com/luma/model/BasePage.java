@@ -20,7 +20,7 @@ abstract class BasePage {
   }
 
   protected WebDriverWait getWait() {
-    if(wait == null) {
+    if (wait == null) {
       this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
     return wait;

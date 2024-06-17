@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import io.qameta.allure.Step;
 
-abstract class NavMenu extends BasePage  {
+abstract class NavMenu extends BasePage {
 
   @FindBy(linkText = "Gear")
   private WebElement gearTopMenu;
