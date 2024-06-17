@@ -5,6 +5,7 @@
         <parameter name="browser" value="chrome" />
         <classes>
             <class name="com.luma.test.NavigationTest"/>
+            <class name="com.luma.test.ProductPageTest"></class>
             <class name="FrameworkTest"/>
         </classes>
     </test>
@@ -17,10 +18,12 @@
 <!--        </classes>-->
 <!--    </test>-->
 
-    <test name = "ChromiumTest" verbose="10">
-        <parameter name="browser" value="chromium"/>
-        <classes>
-            <class name="com.luma.test.NavigationTest"/>
-        </classes>
-    </test>
+<!--    <test name = "ChromiumTest" verbose="10">-->
+<!--        <parameter name="browser" value="chromium"/>-->
+<!--        <classes>-->
+<!--            <class name="com.luma.test.NavigationTest"/>-->
+<!--    <class name="com.luma.test.ProductPageTest"></class>-->
+<!--    <class name="FrameworkTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
