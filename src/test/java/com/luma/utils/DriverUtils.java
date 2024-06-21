@@ -1,13 +1,13 @@
 package com.luma.utils;
 
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.chromium.ChromiumOptions;
-import org.openqa.selenium.chromium.ChromiumDriver;
-import org.openqa.selenium.firefox.*;
-
-import java.util.Map;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverUtils {
 
@@ -15,7 +15,7 @@ public class DriverUtils {
   private static final ChromiumOptions<ChromeOptions> chromiumOptions;
   private static final FirefoxOptions firefoxOptions;
 
-  static  {
+  static {
     chromeOptions = new ChromeOptions();
     chromeOptions.addArguments("--incognito");
     chromeOptions.addArguments("--headless");
@@ -31,12 +31,10 @@ public class DriverUtils {
     firefoxOptions.addArguments("--incognito");
     firefoxOptions.addArguments("--headless");
     firefoxOptions.addArguments("--window-size=1920,1080");
-//    firefoxOptions.addArguments("--disable-gpu");
-//    firefoxOptions.addArguments("--no-sandbox");
-//    firefoxOptions.addArguments("--disable-dev-shm-usage");
-//    firefoxOptions.addArguments("--disable-web-security");
-//    firefoxOptions.addArguments("--allow-running-insecure-content");
-//    firefoxOptions.addArguments("--ignore-certificate-errors");
+    firefoxOptions.addArguments("--disable-gpu");
+    firefoxOptions.addArguments("--no-sandbox");
+    firefoxOptions.addArguments("--disable-dev-shm-usage");
+    firefoxOptions.addArguments("--disable-web-security");
 
     chromiumOptions = chromeOptions;
 
@@ -44,6 +42,7 @@ public class DriverUtils {
 
   private static WebDriver createChromeDriver(WebDriver driver) {
     if (driver != null) {
+
       driver.quit();
     }
 
@@ -54,28 +53,30 @@ public class DriverUtils {
     return chromeDriver;
   }
 
-//  private static WebDriver createChromiumDriver(WebDriver driver) {
-//    if (driver != null) {
-//      driver.quit();
-//    }
-//
-//    ChromiumDriver chromiumDriver = new ChromiumDriver(chromiumOptions);
-//    chromiumDriver.executeCdpCommand("Network.enable", Map.of());
-//    chromiumDriver.executeCdpCommand("Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9")));
-//
-//    return chromiumDriver;
-//  }
+  private static WebDriver createChromiumDriver(WebDriver driver) {
+    if (driver != null) {
+      driver.quit();
+    }
+
+    ChromeDriver chromeDriver = new ChromeDriver((ChromeOptions) chromiumOptions);
+    chromeDriver.executeCdpCommand("Network.enable", Map.of());
+    chromeDriver.executeCdpCommand(
+        "Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9"))
+    );
+
+    return chromeDriver;
+  }
 
   private static WebDriver createFirefoxDriver(WebDriver driver) {
     if (driver != null) {
       driver.quit();
     }
 
-    FirefoxDriver firefoxDriver = new FirefoxDriver(firefoxOptions);
+//    FirefoxDriver firefoxDriver = new FirefoxDriver(firefoxOptions);
 //    firefoxDriver.executeCdpCommand("Network.enable", Map.of());
 //    firefoxDriver.executeCdpCommand("Network.setExtraHTTPHeaders", Map.of("headers", Map.of("accept-language", "en-US,en;q=0.9")));
 
-    return firefoxDriver;
+    return new FirefoxDriver(firefoxOptions);
   }
 
   public static WebDriver createDriver(String browser, WebDriver driver) {
@@ -85,6 +86,9 @@ public class DriverUtils {
       }
       case "firefox" -> {
         return createFirefoxDriver(driver);
+      }
+      case "chromium" -> {
+        return createChromiumDriver(driver);
       }
       default -> {
         return null;

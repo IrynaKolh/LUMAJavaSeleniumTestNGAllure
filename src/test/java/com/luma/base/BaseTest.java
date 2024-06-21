@@ -1,10 +1,17 @@
 package com.luma.base;
 
 import com.luma.utils.DriverUtils;
+import com.luma.utils.ReportUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 public abstract class BaseTest {
 
@@ -25,8 +32,10 @@ public abstract class BaseTest {
 
   @Parameters("browser")
   @BeforeMethod(alwaysRun = true)
-  protected void setupDriver(String browser) {
+  protected void setupDriver(@Optional("chrome") String browser, ITestResult result) {
     Reporter.log("___________________________________________________________________________", true);
+    Reporter.log("RUN " + result.getMethod().getMethodName(), true);
+    Allure.step("Create Driver");
     this.driver = DriverUtils.createDriver(browser, this.driver);
     if (getDriver() == null) {
       Reporter.log("ERROR: Unknown parameter 'browser' - '" + browser + "'.", true);
@@ -46,8 +55,10 @@ public abstract class BaseTest {
 
   @Parameters("browser")
   @AfterMethod(alwaysRun = true)
-  protected void teardown(String browser) {
+  protected void teardown(@Optional("chrome") String browser, ITestResult result) {
+    Reporter.log("STOP " + result.getMethod().getMethodName() + ": " + ReportUtils.getTestStatus(result), true);
     if (this.driver != null) {
+      Allure.step("Quit Driver");
       driver.quit();
       Reporter.log("INFO: " + browser.toUpperCase() + " driver closed.", true);
       this.driver = null;
@@ -56,7 +67,7 @@ public abstract class BaseTest {
     }
   }
 
-  public WebDriver getDriver() {
+  protected WebDriver getDriver() {
     return this.driver;
   }
 }
