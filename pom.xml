@@ -11,12 +11,16 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <!-- Define the version of Allure you want to use via the allure.version property -->
         <allure.version>2.24.0</allure.version>
         <!-- Define the version of AspectJ -->
         <aspectj.version>1.9.20.1</aspectj.version>
+
+        <tests.skip>false</tests.skip>
     </properties>
 
     <!-- Add allure-bom to dependency management to ensure correct versions of all the dependencies are used -->
@@ -70,13 +74,16 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
+                    <skipTests>${tests.skip}</skipTests>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>
-                            testng.xml
-                        </suiteXmlFile>
+                        <suiteXmlFile>xmlSuits/smoke.xml</suiteXmlFile>
+                        <!--<suiteXmlFile>xmlSuits/chrome.xml</suiteXmlFile>-->
+                        <!--<suiteXmlFile>xmlSuits/firefox.xml</suiteXmlFile>-->
+                        <suiteXmlFile>xmlSuits/regression.xml</suiteXmlFile>
+                        <!--<suiteXmlFile>xmlSuits/crossBrowser.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>

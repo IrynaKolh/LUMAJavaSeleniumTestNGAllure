@@ -16,7 +16,7 @@ public class NavigationTest extends BaseTest {
 
   @Test(
       description = "TC-01 Open Base URL",
-      groups = {"Smoke", "Regretion"},
+      groups = {"smoke", "regretion"},
       testName = "NAVIGATION | Navigate to base URL"
   )
   @Story("Navigation")
@@ -44,7 +44,7 @@ public class NavigationTest extends BaseTest {
       description = "TC-02 Top Menu Navigation",
       dataProvider = "navigationData",
       dataProviderClass = TestData.class,
-      groups = {"Smoke", "Regretion"},
+      groups = {"smoke", "regretion"},
       testName = "NAVIGATION | Navigate to top menus"
   )
   @Story("Navigation Menu")

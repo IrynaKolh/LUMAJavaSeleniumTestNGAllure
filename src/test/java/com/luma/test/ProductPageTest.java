@@ -15,14 +15,15 @@ import org.testng.annotations.Test;
 
 public class ProductPageTest extends BaseTest {
   @Test(
-      description = "TC-02 Testing 1 Product",
-      groups = {"Smoke", "Regretion"},
-      testName = "PRODUCT | Testing 1 Product"
+      testName = "PRODUCT | Product Details",
+      description = "TC-03 Verify Product Details on Product Page",
+      groups = {"regression"}
   )
-  @Story("Products")
-  @Severity(SeverityLevel.BLOCKER)
-  @Description("TC-02 Testing 1 Product")
-  @Link(TestData.BASE_URL)
+  @Story("Product Details")
+  @Severity(SeverityLevel.NORMAL)
+  @Description("To verify that the product page displays the correct product name and breadcrumb menu text " +
+      "for the 'Driven Backpack'.")
+  @Link(TestData.DRIVEN_BACKPACK_PRODUCT_URL)
   public void testProduct() {
     Allure.step("Go to base url");
     getDriver().get(TestData.BASE_URL);
