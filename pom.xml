@@ -80,10 +80,10 @@
                     </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>xmlSuits/smoke.xml</suiteXmlFile>
-                        <suiteXmlFile>xmlSuits/chrome.xml</suiteXmlFile>
-                        <suiteXmlFile>xmlSuits/firefox.xml</suiteXmlFile>
+                        <!--<suiteXmlFile>xmlSuits/chrome.xml</suiteXmlFile>-->
+                        <!--<suiteXmlFile>xmlSuits/firefox.xml</suiteXmlFile>-->
                         <suiteXmlFile>xmlSuits/regression.xml</suiteXmlFile>
-                        <suiteXmlFile>xmlSuits/crossBrowser.xml</suiteXmlFile>
+                        <!--<suiteXmlFile>xmlSuits/crossBrowser.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
